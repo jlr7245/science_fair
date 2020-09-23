@@ -5,4 +5,9 @@ class User < ApplicationRecord
 
   scope :instructors, -> { where(user_type: 'instructor') }
   scope :students, -> { where(user_type: 'student') }
+
+  has_many :cohort_memberships
+  has_many :cohorts, through: :cohort_memberships
+
+  has_one :site
 end
