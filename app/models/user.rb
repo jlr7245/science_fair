@@ -12,4 +12,9 @@ class User < ApplicationRecord
   has_many :cohorts, through: :cohort_memberships
 
   has_one :site
+
+  has_secure_password
+
+  scope :instructors, -> { where(user_type: 'instructor') }
+  scope :students, -> { where(user_type: 'student') }
 end
