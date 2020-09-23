@@ -21,10 +21,8 @@ ActiveRecord::Schema.define(version: 2020_09_23_195821) do
     t.string "email"
     t.string "password_digest"
     t.integer "user_type"
-    t.string "session_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["session_token"], name: "index_users_on_session_token"
     t.index ["username"], name: "index_users_on_username"
   end
 
