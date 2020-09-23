@@ -40,11 +40,12 @@ Project view:
 
 ![Project view](https://user-images.githubusercontent.com/12768542/94060142-6ee8a300-fdb1-11ea-9a2f-4fe366b7bc00.png)
 
-Batched tours:
-
-![Batched tours](https://user-images.githubusercontent.com/12768542/94061215-14e8dd00-fdb3-11ea-8be5-051eaaa9a0bd.png)
-
 Everyone a visitor and host tours:
 
 ![image](https://user-images.githubusercontent.com/12768542/94061278-2e8a2480-fdb3-11ea-888a-30ab0e0d9546.png)
+
+Student dashboard:
+
+![student dashboard](https://user-images.githubusercontent.com/12768542/94076418-03133400-fdcb-11ea-9aea-4b71d10f88ff.png)
+
 

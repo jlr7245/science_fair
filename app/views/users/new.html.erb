@@ -1,0 +1,29 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+      <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :user_type %>
+    <%= f.radio_button :user_type, 'student' %> <%= f.label :user_type_student, 'Student' %>
+    <%= f.radio_button :user_type, 'instructor' %> <%= f.label :user_type_student, 'Instructor' %>
+  </div>
+  <div>
+    <%= f.submit "Sign up!" %>
+  </div>
+<% end %>
