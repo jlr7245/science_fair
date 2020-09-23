@@ -1,0 +1,25 @@
+instructor actions:
+  - create a cohort
+  - create a project, specifying the cohort, project has all the same students that cohort has
+  - view students in a cohort, along w/ their sites
+  - generate a tour
+  - generate signup link for this cohort
+
+
+student actions:
+  - create account; either choosing the cohort they're in, or via a signup link w/ the cohort param in it
+  - view available projects within the cohort, go to one of them
+  - creates their site within the project
+  - view their visit schedule
+
+
+features:
+  - create projects: these allow for submissions, then the instructor spawns a tour off of it once all submissions are in
+  - make visit_and_host_every_round first
+  - tourRound is not necessary, just have tourVisit belong_to tour, just for scoping purposes
+  - consider tracking the duration of each visit
+  - let students visit sites w/o a timer. do not create the visit permutations up front. when the student clicks Next Visit, just send them to a site they haven't been to yet this tour
+  - iframe the heroku site into the student visit site
+  - what about non-heroku things, like hardware projects? maybe the iframe could render a youtube embed if the url is youtube
+  - content moderation function for instructors
+

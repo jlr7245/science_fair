@@ -1,5 +1,5 @@
 class Tour < ApplicationRecord
-  enum visit_type: %w(split_host_and_visit all_host_and_visit)
+  enum visit_type: %w(visit_and_host_every_round alternate_visiting_and_hosting)
 
   has_many :tour_participants
   has_many :participants, though: :tour_participants, source: :user

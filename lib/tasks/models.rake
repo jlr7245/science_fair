@@ -23,5 +23,20 @@ end
       system("rm #{file(m)}")
     end
   end
+
+  desc "sample workflow"
+  task :workflow => [:environment] do
+    [Cohort, User, Site,].each(&:destroy_all)
+
+    instructor = FactoryBot.create(:user, :instructor)
+    cohort = FactoryBot.create(:cohort, creator: instructor)
+
+    6.times do
+      student = FactoryBot.create(:user, :student)
+      site = FactoryBot.create(:site, student: student)
+    end
+
+
+  end
 end
 
