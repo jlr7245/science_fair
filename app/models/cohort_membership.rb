@@ -1,0 +1,2 @@
+class CohortMembership < ApplicationRecord
+end

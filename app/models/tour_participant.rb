@@ -1,0 +1,2 @@
+class TourParticipant < ApplicationRecord
+end
