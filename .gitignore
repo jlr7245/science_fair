@@ -1,1 +1,4 @@
 *.sketch
+tmp
+log
+node_modules
