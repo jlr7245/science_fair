@@ -1,0 +1,66 @@
+// colors and their mixins
+
+$brand: #dbddff;
+@mixin brand-txt {
+  color: $brand;
+}
+@mixin brand-bg {
+  background-color: $brand;
+}
+
+$brand-dk: #858adb;
+@mixin brand-dk-txt {
+  color: $brand-dk;
+}
+@mixin brand-dk-bg {
+  background-color: $brand-dk;
+  color: white;
+}
+
+$sec: #dbfff7;
+@mixin sec-bg {
+  background-color: $sec;
+}
+
+$sec-dk: #41eac6;
+@mixin sec-dk-txt {
+  color: $sec-dk;
+}
+@mixin sec-dk-bg {
+  background-color: $sec-dk;
+}
+
+$alert: #ffaf9e;
+@mixin alert-txt {
+  color: $alert;
+}
+@mixin alert-bg {
+  background-color: $alert;
+}
+
+$txt-base: #4b4b4b;
+$ltgr: #dfdfdf;
+
+// base styles (border, padding, margin)
+$border: 4px solid;
+
+// fonts
+
+@mixin sans {
+  font-family: 'Epilogue', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@mixin mono {
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+// basic styles
+
+body {
+  @include mono;
+  color: $txt-base;
+}
+
+a {
+  @include brand-dk-txt;
+}
