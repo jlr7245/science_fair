@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:dashboard]
   
   def new
-    @user = User.new
+    @user = User.new(user_type: params[:user_type])
   end
 
   def create
