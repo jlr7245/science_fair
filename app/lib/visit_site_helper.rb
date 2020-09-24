@@ -7,6 +7,8 @@ class VisitSiteHelper
   end
 
   def visit_next_site!
+    conclude_current_visit!
+
     site = sites_left_to_visit.sample
 
     return site if site.nil?
@@ -18,6 +20,14 @@ class VisitSiteHelper
     })
 
     site
+  end
+
+  def conclude_current_visit!
+    current_visit.update(concluded_at: Time.now)
+  end
+
+  def current_visit
+    TourVisit.current_for_visitor_and_tour(visitor, tour)
   end
 
   def sites_left_to_visit
