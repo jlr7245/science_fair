@@ -1,5 +1,5 @@
 class BuildScienceFair
-  attr_reader :cohort, :students, :name, :date, :type, :num_rounds
+  attr_reader :cohort, :students, :name, :date, :type
 
   def initialize(cohort, params)
     params = params.with_indifferent_access
@@ -9,7 +9,6 @@ class BuildScienceFair
     @date = params[:date]
     @name = params[:name]
     @type = params[:type]
-    @num_rounds = params[:num_rounds]
   end
 
   def build!
@@ -27,10 +26,8 @@ class BuildScienceFair
   end
 
   def build_tour!
-    tour = cohort.tours.create(tour_params)
-    tour.update(participants: students)
-
-    num_rounds.times { tour.tour_rounds.create }
+    # tour = cohort.tours.create(tour_params)
+    # tour.update(participants: students)
   end
 
   def tour_params
