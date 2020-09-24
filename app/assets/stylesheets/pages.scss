@@ -51,5 +51,29 @@
 
 
 // about
+.about-container {
+  @include container(100px 0);
+  .img-label {
+    @include sans;
+    @include brand-dk-txt;
+    font-size: $xs;
+    margin-left: 250px;
+  }
+  h3 {
+    font-size: $l;
+    margin-bottom: 40px;
+    line-height: $lh;
+  }
+  .flex {
+    align-items: center;
+  }
+}
 
+.about {
+  p {
+    @include sans;
+    font-size: $m;
+    line-height: $lh;
+  }
+}
 

@@ -165,5 +165,9 @@ main {
 @mixin container($padding) {
   margin: auto;
   padding: $padding;
-  max-width: 1000px;
+  max-width: 900px;
+}
+
+.flex {
+  display: flex;
 }

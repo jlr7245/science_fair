@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, alert: "You must be logged in to access this page." if current_user.nil?
   end
 
+  def redirect_logged_in
+    redirect_to dashboard_path if !current_user.nil?
+  end
+
 end
