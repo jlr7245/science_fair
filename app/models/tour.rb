@@ -1,8 +1,11 @@
 class Tour < ApplicationRecord
-  enum visit_type: %w(visit_and_host_every_round alternate_visiting_and_hosting)
+  belongs_to :project
 
-  has_many :tour_participants
-  has_many :participants, though: :tour_participants, source: :user
+  def cohort
+    project.cohort
+  end
 
-  belongs_to :cohort
+  def students
+    cohort.students
+  end
 end

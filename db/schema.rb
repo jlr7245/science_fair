@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_212514) do
+ActiveRecord::Schema.define(version: 2020_09_24_200447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 2020_09_23_212514) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "cohort_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cohort_id"], name: "index_projects_on_cohort_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.string "title"
     t.string "url"
@@ -62,24 +70,8 @@ ActiveRecord::Schema.define(version: 2020_09_23_212514) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "project_id"
     t.index ["user_id"], name: "index_sites_on_user_id"
-  end
-
-  create_table "tour_participants", force: :cascade do |t|
-    t.boolean "is_only_hosting"
-    t.bigint "tour_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tour_id"], name: "index_tour_participants_on_tour_id"
-    t.index ["user_id"], name: "index_tour_participants_on_user_id"
-  end
-
-  create_table "tour_rounds", force: :cascade do |t|
-    t.bigint "tour_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tour_id"], name: "index_tour_rounds_on_tour_id"
   end
 
   create_table "tour_visits", force: :cascade do |t|
@@ -88,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_212514) do
     t.bigint "site_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "tour_round_id"
+    t.integer "tour_id"
     t.index ["site_id"], name: "index_tour_visits_on_site_id"
     t.index ["user_id"], name: "index_tour_visits_on_user_id"
   end
@@ -96,11 +88,9 @@ ActiveRecord::Schema.define(version: 2020_09_23_212514) do
   create_table "tours", force: :cascade do |t|
     t.string "name"
     t.date "date"
-    t.integer "visit_type"
-    t.bigint "cohort_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cohort_id"], name: "index_tours_on_cohort_id"
+    t.integer "project_id"
   end
 
   create_table "users", force: :cascade do |t|

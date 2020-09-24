@@ -14,11 +14,11 @@ FactoryBot.define do
     end
 
     trait :student do
-      user_type { 'student' }
+      user_type { User::UserTypes::STUDENT }
     end
 
     trait :instructor do
-      user_type { 'instructor' }
+      user_type { User::UserTypes::INSTRUCTOR }
     end
   end
 end
