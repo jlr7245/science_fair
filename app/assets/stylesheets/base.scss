@@ -54,13 +54,116 @@ $border: 4px solid;
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
 }
 
+$xxl: 72px;
+$xl: 64px;
+$l: 48px;
+$ml: 32px;
+$m: 24px;
+$s: 18px;
+$xs: 14px;
+$xxs: 12px;
+$xxxs: 10px;
+
+$lh: 1.4em;
+
+.mono {
+  @include mono;
+  &--lt {
+    @extend .mono;
+    font-weight: 300;
+  }
+  &--reg {
+    @extend .mono;
+    font-weight: 400;
+  }
+  &--bd {
+    @extend .mono;
+    font-weight: 700;
+  }
+  &--bk {
+    @extend .mono;
+    font-weight: 900;
+  }
+}
+
+.sans {
+  @include sans;
+  &--lt {
+    @extend .sans;
+    font-weight: 300;
+  }
+  &--reg {
+    @extend .sans;
+    font-weight: 400;
+  }
+  &--bd {
+    @extend .sans;
+    font-weight: 700;
+  }
+  &--bk {
+    @extend .sans;
+    font-weight: 900;
+  }
+}
+
 // basic styles
 
 body {
   @include mono;
   color: $txt-base;
+  line-height: 1.5em;
+  text-transform: none;
 }
 
 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.link {
   @include brand-dk-txt;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+// flashes
+
+.flash {
+  width: 100%;
+  @include sans;
+  font-weight: 800;
+  div {
+    padding: 10px 0;
+    text-align: center;
+  }
+  .notice {
+    @include sec-bg;
+  }
+  .alert {
+    @include alert-bg;
+  }
+}
+
+// buttons
+
+.btn {
+  display: block;
+  border-radius: 23px;
+  padding: 10px 20px;
+  text-align: center;
+  &--brand {
+    @extend .btn;
+    @include brand-dk-bg;
+  }
+}
+
+// containers and so on
+
+@mixin container($padding) {
+  margin: auto;
+  padding: $padding;
+  max-width: 1000px;
 }
