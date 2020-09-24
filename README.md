@@ -48,4 +48,13 @@ Student dashboard:
 
 ![student dashboard](https://user-images.githubusercontent.com/12768542/94076418-03133400-fdcb-11ea-9aea-4b71d10f88ff.png)
 
+### Design notes / spec sheet
+
+Want to keep things super clean, it should be a nice app but it shouldn't detract from the actual projects themselves.
+
+Google Fonts:
+- Epilogue
+- IBM Plex Mono
+
+![design-doc](https://user-images.githubusercontent.com/12768542/94088348-46c36900-fdde-11ea-9239-dd8f596f2914.png)
 

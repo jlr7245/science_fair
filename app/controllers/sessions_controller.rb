@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :redirect_logged_in, only: [:new, :create]
+  before_action :authorize, only: [:destroy]
 
   def new
   end

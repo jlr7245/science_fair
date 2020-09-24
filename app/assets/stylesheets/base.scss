@@ -1,0 +1,193 @@
+// colors and their mixins
+
+$brand: #dbddff;
+@mixin brand-txt {
+  color: $brand;
+}
+@mixin brand-bg {
+  background-color: $brand;
+}
+
+$brand-dk: #858adb;
+@mixin brand-dk-txt {
+  color: $brand-dk;
+}
+@mixin brand-dk-bg {
+  background-color: $brand-dk;
+  color: white;
+}
+
+$sec: #dbfff7;
+@mixin sec-bg {
+  background-color: $sec;
+}
+
+$sec-dk: #41eac6;
+@mixin sec-dk-txt {
+  color: $sec-dk;
+}
+@mixin sec-dk-bg {
+  background-color: $sec-dk;
+}
+
+$alert: #ffaf9e;
+@mixin alert-txt {
+  color: $alert;
+}
+@mixin alert-bg {
+  background-color: $alert;
+}
+
+$txt-base: #4b4b4b;
+$ltgr: #dfdfdf;
+
+// base styles (border, padding, margin)
+$border: 4px solid;
+
+// fonts
+
+@mixin sans {
+  font-family: 'Epilogue', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@mixin mono {
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+$xxl: 72px;
+$xl: 64px;
+$l: 48px;
+$ml: 32px;
+$m: 24px;
+$s: 18px;
+$xs: 14px;
+$xxs: 12px;
+$xxxs: 10px;
+
+$lt: 300;
+$reg: 400;
+$bd: 700;
+$bk: 900;
+
+$lh: 1.4em;
+
+.mono {
+  @include mono;
+  &--lt {
+    @extend .mono;
+    font-weight: $lt;
+  }
+  &--reg {
+    @extend .mono;
+    font-weight: $reg;
+  }
+  &--bd {
+    @extend .mono;
+    font-weight: $bd;
+  }
+  &--bk {
+    @extend .mono;
+    font-weight: $bk;
+  }
+}
+
+.sans {
+  @include sans;
+  &--lt {
+    @extend .sans;
+    font-weight: $lt;
+  }
+  &--reg {
+    @extend .sans;
+    font-weight: $reg;
+  }
+  &--bd {
+    @extend .sans;
+    font-weight: $bd;
+  }
+  &--bk {
+    @extend .sans;
+    font-weight: $bk;
+  }
+}
+
+// basic styles
+
+body {
+  @include mono;
+  color: $txt-base;
+  line-height: 1.5em;
+  text-transform: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.link {
+  @include brand-dk-txt;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+// flashes
+
+.flash {
+  width: 100%;
+  @include sans;
+  font-weight: 800;
+  div {
+    padding: 10px 0;
+    text-align: center;
+  }
+  .notice {
+    @include sec-bg;
+  }
+  .alert {
+    @include alert-bg;
+  }
+}
+
+// buttons
+
+.btn {
+  display: block;
+  border-radius: 23px;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  &--brand {
+    @extend .btn;
+    @include brand-dk-bg;
+  }
+  &--sec {
+    @extend .btn;
+    @include sec-dk-bg;
+    &:hover {
+      background-color: lighten($sec-dk, 10);
+    }
+  }
+}
+
+// containers and so on
+
+@mixin container($padding, $border: 0) {
+  margin: auto;
+  padding: $padding;
+  max-width: 900px;
+  width: 80vw;
+
+  @if $border > 0 {
+    margin: $padding, auto;
+    border: $border solid $ltgr;
+  }
+}
+
+.flex {
+  display: flex;
+}

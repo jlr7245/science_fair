@@ -1,0 +1,43 @@
+@import 'base';
+
+.header-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+header {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  .logo {
+    font-size: $l;
+    font-style: italic;
+    font-weight: 900;
+    border: 10px solid $brand;
+    border-radius: 35px;
+  }
+  nav {
+    @include sans;
+    ul {
+      display: flex;
+      .nav-item {
+        padding: 5px 10px;
+        margin: 10px 5px;
+        border-bottom: $border $sec;
+        transition: all 0.2s;
+        .current {
+          @include sec-dk-bg;
+        }
+        &:hover {
+          border-bottom-color: $sec-dk;
+        }
+      }
+    }
+  }
+}
+
+

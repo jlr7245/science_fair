@@ -1,0 +1,66 @@
+@import 'base';
+
+form {
+  background-color: white;
+  padding: 50px 100px;
+
+  div {
+    margin: 15px 0;
+    &.radio-group {
+      label:not(.for_radio_set) {
+        @extend .mono--reg;
+        font-size: $s;
+        color: $txt-base;
+      }
+    }
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    @extend .sans--reg;
+    display: block;
+    font-size: $s;
+    padding: 10px;
+    border-radius: 23px;
+    border: 2px solid $ltgr;
+    color: $txt-base;
+    &:focus {
+      outline: 0;
+      border-color: $brand;
+    }
+  }
+
+  input[type=submit] {
+    @extend .btn--sec;
+    @extend .mono--reg;
+    font-size: $s;
+    border: 0;
+    color: $txt-base;
+  }
+
+  label {
+    @extend .sans--bd;
+    @include brand-dk-txt;
+    font-size: $xxs;
+    &.for_text_inputs, &.for_radio_set {
+      margin-left: 23px;
+      display: block;
+    }
+  }
+}
+
+.form-container {
+  @include container(30px);
+  @extend .flex;
+  .form-holder, .form-color {
+    flex-grow: 1;
+  }
+
+  .form-holder {
+    max-width: 60%;
+  }
+
+  .form-color {
+    @include brand-bg;
+  }
+}
