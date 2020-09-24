@@ -1,14 +1,20 @@
-<h1>Log In</h1>
-<%= form_for :login do |f| %>
-  <div>
-    <%= f.label :username %>
-    <%= f.text_field :username, autofocus: true %>
+
+<div class="form-container">
+  <div class="form-holder">
+    <%= form_for :login do |f| %>
+      <div>
+        <%= f.label :username, class: "for_text_inputs" %>
+        <%= f.text_field :username, autofocus: true %>
+      </div>
+      <div>
+        <%= f.label :password, class: "for_text_inputs" %>
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.submit "Log In" %>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="form-color">
   </div>
-  <div>
-    <%= f.submit "Log In" %>
-  </div>
-<% end %>
+</div>

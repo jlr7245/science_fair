@@ -64,25 +64,30 @@ $xs: 14px;
 $xxs: 12px;
 $xxxs: 10px;
 
+$lt: 300;
+$reg: 400;
+$bd: 700;
+$bk: 900;
+
 $lh: 1.4em;
 
 .mono {
   @include mono;
   &--lt {
     @extend .mono;
-    font-weight: 300;
+    font-weight: $lt;
   }
   &--reg {
     @extend .mono;
-    font-weight: 400;
+    font-weight: $reg;
   }
   &--bd {
     @extend .mono;
-    font-weight: 700;
+    font-weight: $bd;
   }
   &--bk {
     @extend .mono;
-    font-weight: 900;
+    font-weight: $bk;
   }
 }
 
@@ -90,19 +95,19 @@ $lh: 1.4em;
   @include sans;
   &--lt {
     @extend .sans;
-    font-weight: 300;
+    font-weight: $lt;
   }
   &--reg {
     @extend .sans;
-    font-weight: 400;
+    font-weight: $reg;
   }
   &--bd {
     @extend .sans;
-    font-weight: 700;
+    font-weight: $bd;
   }
   &--bk {
     @extend .sans;
-    font-weight: 900;
+    font-weight: $bk;
   }
 }
 
@@ -154,18 +159,33 @@ main {
   border-radius: 23px;
   padding: 10px 20px;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
   &--brand {
     @extend .btn;
     @include brand-dk-bg;
+  }
+  &--sec {
+    @extend .btn;
+    @include sec-dk-bg;
+    &:hover {
+      background-color: lighten($sec-dk, 10);
+    }
   }
 }
 
 // containers and so on
 
-@mixin container($padding) {
+@mixin container($padding, $border: 0) {
   margin: auto;
   padding: $padding;
   max-width: 900px;
+  width: 80vw;
+
+  @if $border > 0 {
+    margin: $padding, auto;
+    border: $border solid $ltgr;
+  }
 }
 
 .flex {
