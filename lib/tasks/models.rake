@@ -65,7 +65,15 @@ end
       })
 
       while vsh.sites_left_to_visit.any?
-        vsh.visit_next_site!
+        site = vsh.visit_next_site!
+
+        # students leave a message in the chatroom of the sites they visit
+        CreateMessageHelper.create_message!({
+          tour: tour,
+          user: student,
+          site: site,
+          content: 'test',
+        })
       end
     end
   end
