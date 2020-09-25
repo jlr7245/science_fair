@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_203756) do
+ActiveRecord::Schema.define(version: 2020_09_25_180422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 2020_09_24_203756) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["site_id"], name: "index_chatrooms_on_site_id"
     t.index ["tour_id"], name: "index_chatrooms_on_tour_id"
-  end
-
-  create_table "cohort_memberships", force: :cascade do |t|
-    t.bigint "cohort_id"
-    t.bigint "member_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cohort_id"], name: "index_cohort_memberships_on_cohort_id"
-    t.index ["member_id"], name: "index_cohort_memberships_on_member_id"
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -101,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_203756) do
     t.integer "user_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cohort_id"
     t.index ["username"], name: "index_users_on_username"
   end
 

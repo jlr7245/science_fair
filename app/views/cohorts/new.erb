@@ -1,0 +1,26 @@
+<h3>Create a new cohort</h3>
+
+<% if @cohort.errors.any?  %>
+  Please fix the following errors: <%= @cohort.errors.full_messages %>
+<% end  %>
+
+<%= form_for @cohort do |f| %>
+  <div>
+    <%= f.label :name, class: "for_text_inputs" %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :starts_on, class: "for_text_inputs" %>
+    <%= f.date_select :starts_on %>
+  </div>
+
+  <div>
+    <%= f.label :ends_on, class: "for_text_inputs" %>
+    <%= f.date_select :ends_on %>
+  </div>
+
+  <div>
+    <%= f.submit :submit %>
+  </div>
+<% end %>

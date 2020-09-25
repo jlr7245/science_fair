@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   before_action :redirect_logged_in, only: [:create, :new]
   before_action :authorize, only: [:dashboard]
-  
+
   def new
+    @cohort_id = request.query_parameters[:cohort_id]
     @user = User.new(user_type: params[:user_type])
   end
 
   def create
     @user = User.new(user_params)
+    @user.cohorts << Cohort.find(params[:user][:cohort_id])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Account created successfully!"

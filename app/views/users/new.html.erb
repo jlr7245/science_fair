@@ -1,12 +1,13 @@
-
 <div class="form-container">
   <div class="form-holder">
     <%= form_for @user do |f| %>
+      <%= f.hidden_field :cohort_id, value: @cohort_id %>
       <div>
         <%= f.label :name, class: "for_text_inputs" %>
         <%= f.text_field :name, autofocus: true %>
       </div>
-        <div>
+
+      <div>
         <%= f.label :email, class: "for_text_inputs" %>
         <%= f.text_field :email %>
       </div>
@@ -24,6 +25,11 @@
         <%= f.radio_button :user_type, 'student' %> <%= f.label :user_type_student, 'Student' %>
         <%= f.radio_button :user_type, 'instructor' %> <%= f.label :user_type_instructor, 'Instructor' %>
       </div>
+      <div>
+        <%= f.label :cohort_id %>
+        <%= f.select :cohort_id, options_for_select(Cohort.all.map { |c| [c.name, c.id] }) %>
+      </div>
+
       <div>
         <%= f.submit "Sign up!" %>
       </div>

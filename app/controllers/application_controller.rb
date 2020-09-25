@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     redirect_to dashboard_path if !current_user.nil?
   end
 
+  def instructors_only!
+    unless current_user.user_type == User::UserTypes::INSTRUCTOR
+      redirect_to root_path
+    end
+  end
 end
