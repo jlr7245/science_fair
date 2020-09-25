@@ -11,8 +11,7 @@ class User < ApplicationRecord
     UserTypes::INSTRUCTOR
   ]
 
-  has_many :cohort_memberships, foreign_key: :member_id
-  has_many :cohorts, through: :cohort_memberships
+  belongs_to :cohort
 
   has_one :site
   has_many :tour_visits

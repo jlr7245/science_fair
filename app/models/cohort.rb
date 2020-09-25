@@ -1,7 +1,6 @@
 class Cohort < ApplicationRecord
   belongs_to :creator, class_name: 'User'
-  has_many :cohort_memberships
-  has_many :members, through: :cohort_memberships
+  has_many :members, class_name: 'User'
 
   def students
     members.where(user_type: 'student')

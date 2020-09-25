@@ -26,6 +26,11 @@
         <%= f.radio_button :user_type, 'instructor' %> <%= f.label :user_type_instructor, 'Instructor' %>
       </div>
       <div>
+        <%= f.label :cohort_id %>
+        <%= f.select :cohort_id, options_for_select(Cohort.all.map { |c| [c.name, c.id] }) %>
+      </div>
+
+      <div>
         <%= f.submit "Sign up!" %>
       </div>
     <% end %>
