@@ -29,15 +29,15 @@ Student
 A student should be able to sign in: done
 A student should be able to select their cohort upon sign in: frontend form, handled in POST /users
 A student should be able to fill out a form submitting their project: POST /projects/:project_id/sites
-A student should be able to join a "tour":
-A student should be able to chat with people visiting their project
+A student should be able to join a "tour": The student becomes a participant in a tour by virtue of having submitted a site for the projec that the tour gets spawned from. But the student also gets a CTA to participate in a tour, if they have a tour in progress at the time
+A student should be able to chat with people visiting their project:
 A student should be able to chat with the people whose projects they're visiting
 Instructor
-An instructor should be able to sign in
-An instructor should be able to create a class
-An instructor should be able to create a tour
-When creating a tour, an instructor should be able to select students and projects to participate (visitors and hosts)
-An instructor should be able to view all chats happening within that tour & moderate if necessary
+An instructor should be able to sign in: done
+An instructor should be able to create a class: POST /cohorts
+An instructor should be able to create a tour: POST /tours
+When creating a tour, an instructor should be able to select students and projects to participate (visitors and hosts): tbd
+An instructor should be able to view all chats happening within that tour & moderate if necessary: tbd
 
 
 

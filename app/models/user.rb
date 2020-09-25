@@ -21,4 +21,8 @@ class User < ApplicationRecord
 
   scope :instructors, -> { where(user_type: UserTypes::INSTRUCTOR) }
   scope :students, -> { where(user_type: UserTypes::STUDENT) }
+
+  def is_instructor?
+    user_type == UserTypes::INSTRUCTOR
+  end
 end

@@ -10,4 +10,8 @@ class Cohort < ApplicationRecord
   def instructors
     members.where(user_type: 'instructor')
   end
+
+  def signup_link(base)
+    "#{base}?cohort_id=#{id}"
+  end
 end
