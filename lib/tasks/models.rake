@@ -54,7 +54,7 @@ end
       project: project,
       name: 'test tour',
       date: Date.today,
-    })
+    }).build!
 
     # students will visit each other's sites
     tour.students.each do |student|
@@ -75,10 +75,5 @@ end
         })
       end
     end
-  end
-
-  desc "test the tour builder"
-  task :build_tour => [:environment] do
-
   end
 end
