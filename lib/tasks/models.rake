@@ -48,17 +48,16 @@ end
     end
 
     # once all site submissions are in, instructor creates a tour for this project
-    tour = FactoryBot.create(:tour, project: project)
-
     # create all the chatrooms for this tour
     # one per site
-    tour.students.each do |student|
-      chatroom = FactoryBot.create(:chatroom, site: student.site, tour: tour)
-    end
+    tour = BuildTour.new({
+      project: project,
+      name: 'test tour',
+      date: Date.today,
+    })
 
     # students will visit each other's sites
     tour.students.each do |student|
-
       vsh = VisitSiteHelper.new({
         visitor: student,
         tour: tour
@@ -76,5 +75,10 @@ end
         })
       end
     end
+  end
+
+  desc "test the tour builder"
+  task :build_tour => [:environment] do
+
   end
 end

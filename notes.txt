@@ -23,3 +23,26 @@ features:
   - what about non-heroku things, like hardware projects? maybe the iframe could render a youtube embed if the url is youtube
   - content moderation function for instructors
 
+
+
+Student
+A student should be able to sign in: done
+A student should be able to select their cohort upon sign in: frontend form, handled in POST /users
+A student should be able to fill out a form submitting their project: POST /projects/:project_id/sites
+A student should be able to join a "tour":
+A student should be able to chat with people visiting their project
+A student should be able to chat with the people whose projects they're visiting
+Instructor
+An instructor should be able to sign in
+An instructor should be able to create a class
+An instructor should be able to create a tour
+When creating a tour, an instructor should be able to select students and projects to participate (visitors and hosts)
+An instructor should be able to view all chats happening within that tour & moderate if necessary
+
+
+
+
+
+
+
+
