@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
 
   # student
   def index
+    @projects = current_user.projects
   end
 
   private

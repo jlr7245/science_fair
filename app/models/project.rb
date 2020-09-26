@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :cohort
-  has_many :members, through: :cohort
+  has_many :members, class_name: "User", through: :cohort
   has_many :sites
   has_many :tours
 
@@ -10,5 +10,21 @@ class Project < ApplicationRecord
 
   def instructors
     members.where(user_type: 'instructor')
+  end
+
+  # def self.sort_by_cohort(projects)
+  #   projects.reduce({}) do |acc, project|
+  #     name = project.cohort.name
+  #     if acc[name]
+  #       acc[name] << project
+  #     else
+  #       acc[name] = [project]
+  #     end
+  #     return acc
+  #   end
+  #  end
+
+  def user_site
+    self.sites.find { |site| site.project }
   end
 end
