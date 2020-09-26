@@ -16,7 +16,8 @@ form {
   }
 
   input[type='text'],
-  input[type='password'] {
+  input[type='password'],
+  select {
     @extend .sans--reg;
     display: block;
     font-size: $s;

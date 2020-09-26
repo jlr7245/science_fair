@@ -9,8 +9,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.cohorts << Cohort.find(params[:user][:cohort_id])
     if @user.save
+      if params[:user][:cohort_id]
+        CohortMembership.create(cohort_id: params[:user][:cohort_id], member: @user)
+      end
       session[:user_id] = @user.id
       flash[:notice] = "Account created successfully!"
       redirect_to root_path
@@ -24,6 +26,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :name, :user_type)
+    params.require(:user).permit(:username, :email, :password, :name, :user_type, :cohort_id)
   end
 end
