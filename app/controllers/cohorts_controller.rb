@@ -20,6 +20,14 @@ class CohortsController < ApplicationController
     end
   end
 
+  def show
+    @cohort = Cohort.find(params[:id])
+
+    if @cohort.creator != current_user
+      redirect_to cohorts_path
+    end
+  end
+
   private
 
   def cohort_params

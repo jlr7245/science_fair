@@ -1,0 +1,9 @@
+<%= @project.name %>
+
+<p>Submissions so far...</p>
+
+<% @project.sites.each do |site| %>
+  <div>
+    <%= site.name %>
+  </div>
+<% end %>

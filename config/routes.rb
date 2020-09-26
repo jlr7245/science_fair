@@ -10,5 +10,12 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
-  resources :cohorts, only: [:new, :create, :index]
+  resources :cohorts do
+    resources :projects
+    resources :tours
+  end
+
+  resources :projects do
+    resources :sites
+  end
 end
