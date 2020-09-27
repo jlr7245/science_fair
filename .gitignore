@@ -1,4 +1,5 @@
 *.sketch
+public/packs/js/*
 tmp
 log
 node_modules
