@@ -30,6 +30,11 @@ class SitesController < ApplicationController
     @tour = Tour.find(params[:tour_id])
     @site = Site.find(params[:id])
     @visit_helper = VisitSiteHelper.new(visitor: current_user, tour: @tour)
+    
+    @message_away = CreateMessageHelper.new_message(tour: @tour, site: @site, user: current_user)
+    if @visit_helper.visitors_own_site
+      @message_home = CreateMessageHelper.new_message(tour: @tour, site: @visit_helper.visitors_own_site, user: current_user)
+    end
   end
 
   # instructor

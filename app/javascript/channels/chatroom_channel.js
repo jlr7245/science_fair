@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
       received(data) {
         // Called when there's incoming data on the websocket for this channel
+        console.log(data, "RECEIVED DATA FROM AWAY")
       }
     });
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         received(data) {
           // Called when there's incoming data on the websocket for this channel
+          console.log(data, "RECEIVED DATA FROM HOME")
         }
       })
     }

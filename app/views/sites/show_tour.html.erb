@@ -1,5 +1,26 @@
 <h1>This is the tour path for <%= @site.title %>! </h1>
 
+<div class="message-rooms">
+  <% if @message_home %>
+    <div class="message-room-holder home">
+      <div class="message-container">
+        <p>user's own site displays ehre</p>
+      </div>
+      <div class="form-container">
+        <%= render "messages/form", message: @message_home %>
+      </div>
+    </div>
+  <% end %>
+  <div class="message-room-holder away">
+    <div class="message-container">
+      <p>messages for the site they're currently on</p>
+    </div>
+    <div class="form-container">
+      <%= render "messages/form", message: @message_away %>
+    </div>
+  </div>
+</div>
+
 
 <script>
 const user_site_id = "<%= @visit_helper.visitors_own_site && @visit_helper.visitors_own_site.id %>"
