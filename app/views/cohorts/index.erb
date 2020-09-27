@@ -3,21 +3,21 @@
 <h3>Existing cohorts</h3>
 <table>
   <tr>
-    <th>Id</th>
     <th>Name</th>
     <th>Starts on</th>
     <th>Ends on</th>
     <th>Creator</th>
     <th>Signup Link (click to copy)</th>
+    <th>Projects</th>
   </tr>
   <% @cohorts.each do |cohort| %>
     <tr>
-      <td><%= cohort.id %></td>
       <td><%= cohort.name %></td>
       <td><%= cohort.starts_on %></td>
       <td><%= cohort.ends_on %></td>
       <td><%= cohort.creator.email %></td>
       <td class="copy-signup-link"><%= cohort.signup_link(new_user_url) %></td>
+      <td><%= link_to("See projects for this cohort", "/cohorts/#{cohort.id}/projects") %>
     </tr>
   <% end %>
 </table>

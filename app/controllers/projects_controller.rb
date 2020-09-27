@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
 
   # instructor
   def create
-    p "here's the create method"
     @cohort = Cohort.find(params[:cohort_id])
     @project = Project.new(project_params)
     @project.cohort = @cohort
@@ -27,6 +26,18 @@ class ProjectsController < ApplicationController
   # student
   def index
     @projects = current_user.projects
+    # this feels gnarly as all hell!!!! if i was in javascript world i would simply do a
+    # nice reduce and end up with a nifty data structure but that doesn't feel rubyesque!
+    # @ pete help
+    @project_sites = @projects.map do |project|
+      project.sites.find { |sites| sites.student == current_user }
+    end
+  end
+
+  # instructor
+  def cohort_projects_index
+    @cohort = Cohort.find(params[:cohort_id])
+    @projects = Project.where(cohort_id: params[:cohort_id])
   end
 
   private

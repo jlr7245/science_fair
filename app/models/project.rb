@@ -24,7 +24,7 @@ class Project < ApplicationRecord
   #   end
   #  end
 
-  def user_site
-    self.sites.find { |site| site.project }
-  end
+  # def user_site(current_user)
+  #   self.sites.find { |site| site.student == current_user }
+  # end
 end

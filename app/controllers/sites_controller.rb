@@ -25,6 +25,13 @@ class SitesController < ApplicationController
     @site = Site.find(params[:id])
   end
 
+  # any
+  def show_tour
+    @tour = Tour.find(params[:tour_id])
+    @site = Site.find(params[:id])
+    @visit_helper = VisitSiteHelper.new(visitor: current_user, tour: @tour)
+  end
+
   # instructor
   def index
   end

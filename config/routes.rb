@@ -11,11 +11,16 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy"
 
   resources :cohorts do
-    resources :projects
-    resources :tours
+    resources :projects, except: [:index]
+    get "/projects" => "projects#cohort_projects_index"
   end
 
-  resources :projects do
+  resources :projects, only: [:index] do
     resources :sites
+  end
+
+  resources :tours, only: [:create] do
+    get "/sites/:id" => "sites#show_tour", as: "site_with_chat"
+    get "/random_site" => "tours#random_site"
   end
 end
