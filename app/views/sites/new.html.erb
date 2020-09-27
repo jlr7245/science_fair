@@ -1,0 +1,32 @@
+<h1>Make your site!</h1>
+
+<%= form_for [@project, @site] do |f| %>
+  <div>
+    <%= f.label :title, class: "for_text_inputs" %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :url, class: "for_text_inputs" %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <%= f.label :description, class: "for_text_inputs" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :intro, class: "for_text_inputs" %>
+    <%= f.text_field :intro %>
+  </div>
+
+    <div>
+    <%= f.label :github, class: "for_text_inputs" %>
+    <%= f.text_field :github %>
+  </div>
+
+  <div>
+    <%= f.submit :submit %>
+  </div>
+<% end %>

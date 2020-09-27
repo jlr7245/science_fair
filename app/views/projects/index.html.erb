@@ -1,0 +1,10 @@
+<% @projects.each do |project| %>
+  <p><%= project.name %></p>
+  <!-- here's the corresponding super gnarly piece to the piece in the sites_controller -->
+  <% if @project_sites.find { |site| site && project.id == site.project_id } %>
+    <%= link_to "Your site for this project", project_site_path(project, @project_sites.find { |site| project.id == site.project_id })%>
+  <% else %>
+    <p>You haven't created a site yet for this project. <%= link_to "Create one?", new_project_site_path(project) %>
+  <% end %>
+    
+<% end %>

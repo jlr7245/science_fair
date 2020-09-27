@@ -1,0 +1,7 @@
+<h1>Projects for <%= @cohort.name %></h1>
+
+<% @projects.each do |project| %>
+  <h3><%= project.name %></h3>
+  <p><%= project.due_date %> (<%= project.sites.count %> submission(s) so far)</p>
+  <p><%= link_to("Start the tour!", tours_path(project_id: project.id), method: "POST") %></p>
+<% end %>

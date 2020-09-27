@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # this is here to allow for students to sign up with a cohort
+  attr_accessor :cohort_id
+
   module UserTypes
     STUDENT = 'student'
     INSTRUCTOR = 'instructor'
@@ -11,7 +14,9 @@ class User < ApplicationRecord
     UserTypes::INSTRUCTOR
   ]
 
-  belongs_to :cohort
+  has_many :cohort_memberships, foreign_key: :member_id
+  has_many :cohorts, through: :cohort_memberships, foreign_key: :member_id
+  has_many :projects, through: :cohorts
 
   has_one :site
   has_many :tour_visits
