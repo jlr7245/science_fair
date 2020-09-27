@@ -1,20 +1,18 @@
 class CreateMessageHelper
-  def self.create_message!(args)
-    tour = args[:tour]
-    user = args[:user]
-    site = args[:site]
-    content = args[:content]
-
-    chatroom = Chatroom.find_by(site: site, tour: tour)
-    Message.create(chatroom: chatroom, user: user, content: content)
+  attr_reader :tour, :site, :user
+  def initialize(args)
+    @tour = args[:tour]
+    @site = args[:site]
+    @user = args[:user]
   end
 
-  def self.new_message(args)
-    tour = args[:tour]
-    user = args[:user]
-    site = args[:site]
-
+  def new_message
     chatroom = Chatroom.find_by(site: site, tour: tour)
     Message.new(chatroom: chatroom, user: user)
+  end
+
+  def messages
+    chatroom = Chatroom.find_by(site: site, tour: tour)
+    chatroom.messages
   end
 end

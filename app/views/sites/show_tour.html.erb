@@ -4,7 +4,7 @@
   <% if @message_home %>
     <div class="message-room-holder home">
       <div class="message-container">
-        <p>user's own site displays ehre</p>
+        <%= render "messages/list", messages: @home_room %>
       </div>
       <div class="form-container">
         <%= render "messages/form", message: @message_home %>
@@ -13,7 +13,7 @@
   <% end %>
   <div class="message-room-holder away">
     <div class="message-container">
-      <p>messages for the site they're currently on</p>
+        <%= render "messages/list", messages: @away_room %>
     </div>
     <div class="form-container">
       <%= render "messages/form", message: @message_away %>
