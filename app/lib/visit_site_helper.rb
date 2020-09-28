@@ -7,9 +7,7 @@ class VisitSiteHelper
   end
 
   def visit_next_site!
-    if current_visit
-      conclude_current_visit!
-    end
+    conclude_current_visit! if current_visit
 
     site = sites_left_to_visit.sample
 
@@ -25,7 +23,7 @@ class VisitSiteHelper
   end
 
   def conclude_current_visit!
-    current_visit.update(concluded_at: Time.now)
+    current_visit.conclude!
   end
 
   def current_visit
