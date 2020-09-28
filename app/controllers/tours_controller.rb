@@ -13,6 +13,11 @@ class ToursController < ApplicationController
   def random_site
     tour = Tour.find(params[:tour_id])
     visit_helper = VisitSiteHelper.new(visitor: current_user, tour: tour)
-    redirect_to tour_site_with_chat_path(tour, visit_helper.visit_next_site!)
+
+    if (site = visit_helper.visit_next_site!)
+      redirect_to tour_site_with_chat_path(tour, site)
+    else
+      redirect_to dashboard_for_user(current_user), notice: "You have finished touring all sites!"
+    end
   end
 end
