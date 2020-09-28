@@ -32,15 +32,17 @@
       border: $border $ltgr;
       padding: 15px;
       margin: 10px 0;
-      p {
+      .metadata {
         font-size: $xs;
         @extend .sans--bd;
       }
-      .project-site-link {
+      .project-site {
         @extend .sans--reg;
         font-size: $m;
         line-height: $lh;
-        @include brand-dk-txt;
+        a {
+          @include brand-dk-txt;
+        }
       }
     }
   }
