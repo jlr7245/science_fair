@@ -10,7 +10,7 @@
     <% @projects.each do |project| %>
       <div class="project">
         <p><%= project.name %> | Cohort <%= project.cohort.name %> | Due <%= project.due_date %></p>
-        <!-- here's the corresponding super gnarly piece to the piece in the sites_controller -->
+        <!-- here's the corresponding super gnarly piece to the piece in the projects_controller -->
         <% if @project_sites.find { |site| site && project.id == site.project_id } %>
           <%= link_to "Your site for this project", project_site_path(project, @project_sites.find { |site| project.id == site.project_id }), class: "project-site-link" %>
         <% else %>
