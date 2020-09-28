@@ -1,4 +1,4 @@
-<h1>This is the tour path for <%= @site.title %>! </h1>
+<%= render 'display', site: @site %>
 
 <div class="message-rooms">
   <div class="titles">
@@ -16,7 +16,7 @@
           <%= render "messages/list", messages: @home_room, current_user_id: @current_user_id %>
         </div>
         <div class="messages-form-container">
-          <%= render "messages/form", message: @message_home, class_name: "home" %>
+          <%= render "messages/form", message: @message_home, class_name: "home", autocomplete: "off" %>
         </div>
       </div>
     <% end %>
@@ -25,7 +25,7 @@
           <%= render "messages/list", messages: @away_room, current_user_id: @current_user_id %>
       </div>
       <div class="messages-form-container">
-        <%= render "messages/form", message: @message_away, class_name: "away" %>
+        <%= render "messages/form", message: @message_away, class_name: "away", autocomplete: "off" %>
       </div>
     </div>
   </div>

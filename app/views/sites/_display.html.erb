@@ -1,0 +1,18 @@
+<div class="site-container">
+  <div class="title-attr">
+    <h3 class="site-title"><%= @site.title %></h3>
+    <div class="attr">
+      <p class="author">A project by <span><%= @site.student.name %></span></p>
+      <p class="links"><a href="<%= @site.url %>" target="_blank">View on the web</a> | <a href="<%= site.github %>" target="_blank">GitHub</a></p>
+    </div>
+  </div>
+
+  <div class="embedded-site">
+    <iframe src="<%= @site.url %>" title="<%= @site.title %>" height="900px" width="1400px">Whoops! Site could not be embedded. <a href="<%= @site.url %>">Please visit it here!</a></iframe>
+  </div>
+
+  <div class="description-block">
+    <div class="label">Description</div>
+    <div class="description"><%= @site.description %></div>
+  </div>
+</div>

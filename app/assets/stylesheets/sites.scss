@@ -1,3 +1,54 @@
 // Place all the styles related to the sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'base';
+
+.site-container {
+  max-width: 1200px;
+  width: 80vw;
+  margin-left: 30px;
+  padding: 50px 0;
+}
+
+.title-attr {
+  margin-bottom: 50px;
+  margin-left: 120px;
+}
+
+.site-title {
+  font-size: $xl;
+  @extend .sans--bk;
+  line-height: $lh;
+}
+
+.attr {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+  .author {
+    span {
+      font-size: $m;
+      @extend .sans--bd;
+    }
+  }
+  a {
+    @include brand-dk-txt;
+    text-decoration: underline;
+  }
+}
+
+.description-block {
+  margin: 50px auto 200px 120px;
+  display: flex;
+  align-items: baseline;
+  .label {
+    @extend .sans--bk;
+    font-size: $xs;
+    flex-basis: 120px;
+  }
+  .description {
+    max-width: 500px;
+    margin-right: 20px;
+  }
+}
