@@ -67,12 +67,12 @@ end
         site = vsh.visit_next_site!
 
         # students leave a message in the chatroom of the sites they visit
-        CreateMessageHelper.create_message!({
+        message = CreateMessageHelper.new({
           tour: tour,
           user: student,
           site: site,
-          content: 'test',
-        })
+        }).new_message
+        message.update(content: 'testing')
       end
     end
   end
