@@ -83,3 +83,14 @@
     }
   }
 }
+
+
+// form
+
+.site-form-container {
+  @include container(50px);
+  h3 {
+    font-size: $l;
+    @extend .sans--bd;
+  }
+}
