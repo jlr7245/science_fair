@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def dashboard_for_user(user)
+    if user.is_student?
+      projects_path
+    elsif user.is_instructor?
+      cohorts_path
+    end
+  end
 end

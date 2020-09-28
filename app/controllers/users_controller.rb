@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       end
       session[:user_id] = @user.id
       flash[:notice] = "Account created successfully!"
-      redirect_to root_path
+      redirect_to dashboard_for_user(current_user)
     else
       redirect_to new_user_path, alert: "Oops, couldn't create account. Please double check your info."
     end
