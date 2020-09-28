@@ -1,3 +1,46 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'base';
+
+.projects-container {
+  @include container(30px);
+  .intro {
+    font-size: $xl;
+    @extend .sans--bk;
+    line-height: $lh;
+  }
+  .active-tour-button {
+    font-size: $m;
+    line-height: $lh;
+    @extend .mono--bk;
+    @include brand-dk-bg;
+    display: block;
+    border-radius: 70px;
+    padding: 20px;
+    text-align: center;
+  }
+  .projects {
+    margin-top: 50px;
+    .projects-header {
+      font-size: $l;
+      line-height: $lh;
+    }
+    .project {
+      max-width: 60%;
+      border: $border $ltgr;
+      padding: 15px;
+      p {
+        font-size: $xs;
+        @extend .sans--bd;
+      }
+      .project-site-link {
+        @extend .sans--reg;
+        font-size: $m;
+        line-height: $lh;
+        @include brand-dk-txt;
+      }
+    }
+  }
+}

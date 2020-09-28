@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
     @project_sites = @projects.map do |project|
       project.sites.find { |sites| sites.student == current_user }
     end
+    @user = current_user
   end
 
   # instructor
