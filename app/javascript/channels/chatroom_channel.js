@@ -1,7 +1,16 @@
 import consumer from "./consumer"
+import { buildMessage } from './utils';
+
+document.addEventListener('update', (evt) => {
+  console.log(evt)
+  console.log('updated')
+})
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const $homeContainer = $('.home .message-container');
+  const $awayContainer = $('.away .message-container');
+ 
   const [_, isTour, tour_id, isSite, site_id] = location.pathname.split('/');
   if (isTour === 'tours' && isSite === 'sites') {
     
@@ -18,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
       received(data) {
         // Called when there's incoming data on the websocket for this channel
-        console.log(data, "RECEIVED DATA FROM AWAY")
+        $awayContainer.append(buildMessage(data))
+        $('.away-input').val('')
       }
     });
 
@@ -33,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         received(data) {
           // Called when there's incoming data on the websocket for this channel
-          console.log(data, "RECEIVED DATA FROM HOME")
+          $homeContainer.append(buildMessage(data))
+          $('.home-input').val('')
         }
       })
     }

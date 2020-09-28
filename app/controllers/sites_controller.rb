@@ -27,6 +27,7 @@ class SitesController < ApplicationController
 
   # any
   def show_tour
+    # this also feels super gnarly, i wonder if it could be, like, better
     @tour = Tour.find(params[:tour_id])
     @site = Site.find(params[:id])
     @visit_helper = VisitSiteHelper.new(visitor: current_user, tour: @tour)

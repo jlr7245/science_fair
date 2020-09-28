@@ -1,8 +1,8 @@
  <div class="message-input">
-<%= form_with model: message, class: "chat" do |f| %>
+<%= form_with model: message, class: "chat #{class_name}" do |f| %>
     <%= f.hidden_field :chatroom_id, value: message.chatroom_id %>
     <%= f.hidden_field :user_id, value: message.user_id %>
-    <%= f.text_field :content, placeholder: "Type your message here..." %>
+    <%= f.text_field :content, placeholder: "Type your message here...", class: "#{class_name}-input" %>
     <%= f.submit :submit %>
 <% end %>
 </div>

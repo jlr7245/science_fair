@@ -7,7 +7,7 @@
         <%= render "messages/list", messages: @home_room %>
       </div>
       <div class="form-container">
-        <%= render "messages/form", message: @message_home %>
+        <%= render "messages/form", message: @message_home, class_name: "home" %>
       </div>
     </div>
   <% end %>
@@ -16,7 +16,7 @@
         <%= render "messages/list", messages: @away_room %>
     </div>
     <div class="form-container">
-      <%= render "messages/form", message: @message_away %>
+      <%= render "messages/form", message: @message_away, class_name: "away" %>
     </div>
   </div>
 </div>
