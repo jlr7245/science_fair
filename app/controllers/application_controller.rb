@@ -22,10 +22,12 @@ class ApplicationController < ActionController::Base
   end
 
   def dashboard_for_user(user)
-    if user.is_student?
+    if user&.is_student?
       projects_path
-    elsif user.is_instructor?
+    elsif user&.is_instructor?
       cohorts_path
+    else
+      nil
     end
   end
 end
