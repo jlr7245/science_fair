@@ -7,9 +7,14 @@
     </div>
   </div>
 
-  <div class="embedded-site">
-    <iframe src="<%= @site.url %>" title="<%= @site.title %>" height="900px" width="1400px">Whoops! Site could not be embedded. <a href="<%= @site.url %>">Please visit it here!</a></iframe>
-  </div>
+  <% if @site.url.include?('youtube') %>
+    <% yt_id = @site.url.split('v=')[1] %>
+    <iframe width="1400" height="800" src="https://www.youtube.com/embed/<%=yt_id%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <% else %>
+    <div class="embedded-site">
+      <iframe src="<%= @site.url %>" title="<%= @site.title %>" height="900px" width="1400px">Whoops! Site could not be embedded. <a href="<%= @site.url %>">Please visit it here!</a></iframe>
+    </div>
+  <% end %>
 
   <div class="description-block">
     <div class="label">Description</div>
