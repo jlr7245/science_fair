@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   # instructor
   def cohort_projects_index
     @cohort = Cohort.find(params[:cohort_id])
-    @projects = Project.where(cohort_id: params[:cohort_id])
+    @projects = @cohort.projects
   end
 
   private

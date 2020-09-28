@@ -3,5 +3,19 @@
 <% @projects.each do |project| %>
   <h3><%= project.name %></h3>
   <p><%= project.due_date %> (<%= project.sites.count %> submission(s) so far)</p>
+
+  <table>
+    <tr>
+      <th>Student</th>
+      <th>url</th>
+    </tr>
+
+    <% project.sites.each do |site| %>
+      <tr>
+        <td><%= site.student.name %></td>
+        <td><%= site.url %></td>
+      </tr>
+    <% end %>
+  </table>
   <p><%= link_to("Start the tour!", tours_path(project_id: project.id), method: "POST") %></p>
 <% end %>
