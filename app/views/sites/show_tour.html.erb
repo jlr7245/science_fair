@@ -1,5 +1,7 @@
 <%= render 'display', site: @site %>
 
+<%= render 'bottom_bar', visit_helper: @visit_helper %>
+
 <div class="message-rooms">
   <div class="titles">
     <% if @visit_helper.visitors_own_site %>

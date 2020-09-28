@@ -1,0 +1,6 @@
+<div class="bottom-bar">
+  <div class="container">
+    <div class="count"><%= visit_helper.sites_already_visited.count %> visited | <%= visit_helper.sites_left_to_visit.count %> remaining</div>
+    <div class="next"><%= link_to "Go to next site!", tour_random_site_url(@tour) %></div>
+  </div>
+</div>
