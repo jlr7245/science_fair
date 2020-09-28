@@ -1,22 +1,32 @@
 <h1>This is the tour path for <%= @site.title %>! </h1>
 
 <div class="message-rooms">
-  <% if @message_home %>
-    <div class="message-room-holder home">
+  <div class="titles">
+    <% if @visit_helper.visitors_own_site %>
+      <h3 class="title home"><%= @visit_helper.visitors_own_site.title %></h3>
+    <% end %>
+    <h3 class="title away active">
+      <%= @site.title %>
+    </h3>
+  </div>
+  <div class="message-holders">
+    <% if @message_home %>
+      <div class="message-room-holder home">
+        <div class="message-container">
+          <%= render "messages/list", messages: @home_room, current_user_id: @current_user_id %>
+        </div>
+        <div class="form-container">
+          <%= render "messages/form", message: @message_home, class_name: "home" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="message-room-holder away">
       <div class="message-container">
-        <%= render "messages/list", messages: @home_room %>
+          <%= render "messages/list", messages: @away_room, current_user_id: @current_user_id %>
       </div>
-      <div class="form-container">
-        <%= render "messages/form", message: @message_home, class_name: "home" %>
+      <div class="messages-form-container">
+        <%= render "messages/form", message: @message_away, class_name: "away" %>
       </div>
-    </div>
-  <% end %>
-  <div class="message-room-holder away">
-    <div class="message-container">
-        <%= render "messages/list", messages: @away_room %>
-    </div>
-    <div class="form-container">
-      <%= render "messages/form", message: @message_away, class_name: "away" %>
     </div>
   </div>
 </div>

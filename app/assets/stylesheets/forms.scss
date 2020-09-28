@@ -69,7 +69,7 @@ form:not(.chat) {
 form.chat {
   input[type="text"] {
     @extend .sans--reg;
-    min-width: 250px;
+    width: 200px;
     font-size: $xxs;
     padding: 7px 20px 7px 7px;
     border-radius: 13px;

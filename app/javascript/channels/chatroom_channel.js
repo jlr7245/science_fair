@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Called when there's incoming data on the websocket for this channel
         $awayContainer.append(buildMessage(data))
         $('.away-input').val('')
+        $awayContainer[0].scrollTop = $awayContainer[0].scrollHeight;
       }
     });
 
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Called when there's incoming data on the websocket for this channel
           $homeContainer.append(buildMessage(data))
           $('.home-input').val('')
+          $homeContainer[0].scrollTop = $homeContainer[0].scrollHeight;
         }
       })
     }
