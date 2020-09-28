@@ -1,3 +1,7 @@
+<% if (active_tour = @user.active_tour) %>
+    <%= link_to("There's a tour for #{active_tour.name}! Join now!", tour_random_site_path(active_tour), class: "active-tour-button") %>
+  <% end %>
+
 <% @projects.each do |project| %>
   <p><%= project.name %></p>
   <!-- here's the corresponding super gnarly piece to the piece in the sites_controller -->
@@ -6,5 +10,4 @@
   <% else %>
     <p>You haven't created a site yet for this project. <%= link_to "Create one?", new_project_site_path(project) %>
   <% end %>
-    
 <% end %>
