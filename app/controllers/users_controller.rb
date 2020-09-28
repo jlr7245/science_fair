@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    if @user.is_student? && user_params[:cohort_id].blank?
+      return redirect_to new_user_path, alert: "Must select a cohort!"
+    end
+
     if @user.save
       if params[:user][:cohort_id]
         CohortMembership.create(cohort_id: params[:user][:cohort_id], member: @user)
@@ -25,6 +30,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:username, :email, :password, :name, :user_type, :cohort_id)
   end

@@ -14,6 +14,6 @@ class Cohort < ApplicationRecord
   end
 
   def signup_link(base)
-    "#{base}?cohort_id=#{id}"
+    "#{base}?cohort_id=#{id}&user_type=student"
   end
 end
