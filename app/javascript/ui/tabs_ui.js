@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
       elems[current].$title.addClass('active');
       elems[current].$title.removeClass('notif');
       elems[other].$title.removeClass('active');
+
+      // scroll to the bottom of the current one JUST!!! in case
+      const $msgs = $(`.${current} .message-container`);
+      $msgs[0].scrollTop = $msgs[0].scrollHeight;
     };
 
     rooms.forEach((room) => {
@@ -37,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // setup
     elems.home.$roomHolder.addClass('hidden');
-    elems.home.$roomHolder.scrollTop(elems.home.$roomHolder.prop('scrollHeight'))
-    elems.away.$roomHolder.scrollTop(elems.away.$roomHolder.prop('scrollHeight'))
+
+    rooms.forEach((room) => {
+      const $msgs = $(`.${room} .message-container`);
+      $msgs[0].scrollTop = $msgs[0].scrollHeight;
+    });
   }
 });

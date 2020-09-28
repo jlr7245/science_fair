@@ -15,7 +15,7 @@
         <div class="message-container">
           <%= render "messages/list", messages: @home_room, current_user_id: @current_user_id %>
         </div>
-        <div class="form-container">
+        <div class="messages-form-container">
           <%= render "messages/form", message: @message_home, class_name: "home" %>
         </div>
       </div>
@@ -34,4 +34,5 @@
 
 <script>
 const user_site_id = "<%= @visit_helper.visitors_own_site && @visit_helper.visitors_own_site.id %>"
+const current_user_id = "<%= @current_user_id %>"
 </script>
