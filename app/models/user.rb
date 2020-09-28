@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :cohort_memberships, foreign_key: :member_id
   has_many :cohorts, through: :cohort_memberships, foreign_key: :member_id
   has_many :projects, through: :cohorts
+  has_many :tours, through: :cohorts
 
   has_one :site
   has_many :tour_visits
@@ -32,5 +33,9 @@ class User < ApplicationRecord
 
   def is_student?
     user_type == UserTypes::STUDENT
+  end
+
+  def active_tour
+    tours.where(date: Date.today).first
   end
 end

@@ -3,6 +3,7 @@ class Cohort < ApplicationRecord
   has_many :cohort_memberships
   has_many :members, class_name: 'User', through: :cohort_memberships
   has_many :projects
+  has_many :tours, through: :projects
 
   def students
     members.where(user_type: 'student')
