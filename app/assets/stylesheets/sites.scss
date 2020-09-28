@@ -93,4 +93,23 @@
     font-size: $l;
     @extend .sans--bd;
   }
+  .description {
+    font-size: $xs;
+    color: lighten($txt-base, 30);
+  }
+  textarea {
+    width: 500px;
+    height: 120px;
+    border: 2px solid $ltgr;
+    border-radius: 23px;
+    padding: 10px;
+    color: $txt-base;
+    @extend .sans--reg;
+    font-size: $s;
+    line-height: $lh;
+    &:focus {
+      outline: none;
+      border-color: $brand;
+    }
+  }
 }
