@@ -27,9 +27,21 @@ class SitesController < ApplicationController
 
   # any
   def show_tour
+    # this also feels super gnarly, i wonder if it could be, like, better
     @tour = Tour.find(params[:tour_id])
     @site = Site.find(params[:id])
     @visit_helper = VisitSiteHelper.new(visitor: current_user, tour: @tour)
+    @current_user_id = current_user.id
+
+    away = CreateMessageHelper.new(tour: @tour, site: @site, user: current_user)
+    @message_away = away.new_message
+    @away_room = away.messages
+    
+    if @visit_helper.visitors_own_site
+      home = CreateMessageHelper.new(tour: @tour, site: @visit_helper.visitors_own_site, user: current_user)
+      @message_home = home.new_message
+      @home_room = home.messages
+    end
   end
 
   # instructor

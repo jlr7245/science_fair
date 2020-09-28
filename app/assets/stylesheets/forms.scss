@@ -1,6 +1,6 @@
 @import 'base';
 
-form {
+form:not(.chat) {
   background-color: white;
   padding: 50px 100px;
 
@@ -63,5 +63,34 @@ form {
 
   .form-color {
     @include brand-bg;
+  }
+}
+
+form.chat {
+  input[type="text"] {
+    @extend .sans--reg;
+    width: 200px;
+    font-size: $xxs;
+    padding: 7px 20px 7px 7px;
+    border-radius: 13px;
+    border: 2px solid $ltgr;
+    color: $txt-base;
+    &:focus {
+      outline: 0;
+      border-color: $brand;
+    }
+  }
+  input[type="submit"] {
+    @extend .sans--reg;
+    @include brand-dk-bg;
+    font-size: $xxs;
+    padding: 7px;
+    border-radius: 13px;
+    border: 2px solid $brand-dk;
+    cursor: pointer;
+    margin-left: -30px;
+    &:hover {
+      background-color: darken($brand-dk, 10);
+    }
   }
 }

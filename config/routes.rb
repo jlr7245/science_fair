@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     get "/sites/:id" => "sites#show_tour", as: "site_with_chat"
     get "/random_site" => "tours#random_site"
   end
+
+  resources :messages, only: [:create, :destroy]
 end

@@ -1,0 +1,6 @@
+<% messages.each do |message| %>
+  <div class="<%= message.user_id == current_user_id ? "message own" : "message" %>">
+    <p><%= message.content %></p>
+    <span class="message-author"><%= message.user.name %>
+  </div>
+<% end %>

@@ -1,7 +1,1 @@
-<h1><%= @site.title %></h1>
-
-<div class="embedded-site">
-  <iframe src="<%= @site.url %>" title="<%= @site.title %>" height="800px" width="1000px">Whoops! Site could not be embedded. <a href="<%= @site.url %>">Please visit it here!</a></iframe>
-</div>
-
-<p><%= @site.description %> </p>
+<%= render 'display', site: @site %>

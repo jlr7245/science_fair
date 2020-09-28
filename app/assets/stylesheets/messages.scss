@@ -1,0 +1,88 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'base';
+
+
+.message-rooms {
+  display: flex;
+  position: fixed;
+  right: 0;
+  top: 20vh;
+}
+
+.titles {
+  display: flex;
+  writing-mode: vertical-rl;
+  .title {
+    transform: rotate(180deg);
+    padding: 10px;
+    cursor: pointer;
+    &.active {
+      @include brand-bg;
+    }
+    &:not(.active) {
+      background-color: lighten($ltgr, 10);
+      &.notif:after {
+        display: inline-block;
+        content: '';
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: $alert;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.message-room-holder {
+  width: 350px;
+  background-color: white;
+  border: 1px solid $ltgr;
+  &.hidden {
+    display: none;
+  }
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  margin: 5px 10px;
+  p {
+    width: 250px;
+    font-size: $xxs;
+    @extend .sans--reg;
+    line-height: $lh;
+    padding: 10px;
+    border-radius: 23px;
+  }
+  &.own {
+    align-self: flex-end;
+    p {
+      @include brand-dk-bg;
+    }
+  }
+  &:not(.own) {
+    p {
+      background-color: $ltgr;
+    }
+  }
+  .message-author {
+    margin-left: 10px;
+    font-size: $xxxs;
+    @include brand-dk-txt;
+    @extend .mono--bd;
+  }
+}
+
+.messages-form-container {
+  @include container(10px);
+}
+
