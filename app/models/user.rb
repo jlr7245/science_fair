@@ -29,4 +29,8 @@ class User < ApplicationRecord
   def is_instructor?
     user_type == UserTypes::INSTRUCTOR
   end
+
+  def is_student?
+    user_type == UserTypes::STUDENT
+  end
 end

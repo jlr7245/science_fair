@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:login][:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'Successfully logged in!'
+      redirect_to dashboard_for_user(current_user), notice: 'Successfully logged in!'
     else
       flash.now.alert = "Incorrect email or password, try again."
       redirect_to login_path
