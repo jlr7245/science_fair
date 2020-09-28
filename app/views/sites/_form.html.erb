@@ -1,0 +1,30 @@
+  <%= form_for [project, site] do |f| %>
+    <div>
+      <%= f.label :title, class: "for_text_inputs" %>
+      <%= f.text_field :title, autofocus: true %>
+      <p class="description">Keep it short but descriptive! Under 20 characters if you can.</p>
+    </div>
+
+    <div>
+      <%= f.label :url, class: "for_text_inputs" %>
+      <%= f.text_field :url %>
+      <p class="description">This is your deployed URL, to Heroku or to a Youtube uploaded screencast.</p>
+      <p class="description">If you are using a Youtube link, please make sure your link is in the format <code>https://www.youtube.com/watch?v=YOUR_EMBED_URL</code>.</p>
+    </div>
+
+    <div>
+      <%= f.label :description, class: "for_text_inputs" %>
+      <%= f.text_area :description %>
+      <p class="description">Write 3-5 sentences about your project!</p>
+    </div>
+
+      <div>
+      <%= f.label :github, class: "for_text_inputs" %>
+      <%= f.text_field :github %>
+      <p class="description">Link to your repository on Github.</p>
+    </div>
+
+    <div>
+      <%= f.submit :submit %>
+    </div>
+  <% end %>

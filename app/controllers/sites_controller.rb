@@ -23,6 +23,25 @@ class SitesController < ApplicationController
   # student
   def show
     @site = Site.find(params[:id])
+    @project = Project.find(params[:project_id])
+  end
+
+  # student
+  def edit
+    @site = Site.find(params[:id])
+    @project = Project.find(params[:project_id])
+  end
+
+  # student
+  def update
+    @site = Site.find(params[:id])
+    @project = Project.find(params[:project_id])
+    if @site.update(site_params)
+      redirect_to project_site_path(@project, @site)
+    else
+      flash[:alert] = "Could not update site. Try again."
+      render "edit"
+    end
   end
 
   # any

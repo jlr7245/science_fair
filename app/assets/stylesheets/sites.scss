@@ -96,6 +96,9 @@
   .description {
     font-size: $xs;
     color: lighten($txt-base, 30);
+    code {
+      @extend .mono--bd;
+    }
   }
   textarea {
     width: 500px;
